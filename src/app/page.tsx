@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/Button/Button";
 import { ProductCard } from "@/components/ui/ProductCard/ProductCard";
+import { AnimatedGrid } from "@/components/ui/AnimatedGrid/AnimatedGrid";
 import { products } from "@/lib/data";
 import styles from "./page.module.css";
 
@@ -107,11 +108,7 @@ export default function Home() {
             <span className={styles.categoryBadge}>Mythical Heroes</span>
           </div>
         </div>
-        <div className={styles.productGrid}>
-          {featuredProducts.map(product => (
-            <ProductCard key={product.id} {...product} />
-          ))}
-        </div>
+        <AnimatedGrid products={featuredProducts} className={styles.productGrid} />
       </section>
       
       {/* Collector Benefits */}

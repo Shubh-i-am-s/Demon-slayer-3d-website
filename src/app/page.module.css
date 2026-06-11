@@ -134,6 +134,12 @@
   }
 }
 
+@media (min-width: 1280px) {
+  .productGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 /* Marquee Scroll for Limited Editions */
 .marqueeWrapper {
   overflow: hidden;

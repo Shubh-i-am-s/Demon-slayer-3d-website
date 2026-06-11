@@ -117,27 +117,15 @@
 
 /* Product Grid */
 .productGrid {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: var(--spacing-xl);
 }
 
-@media (min-width: 640px) {
-  .productGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .productGrid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (min-width: 1280px) {
-  .productGrid {
-    grid-template-columns: repeat(4, 1fr);
-  }
+.productGrid > div {
+  flex: 1 1 280px;
+  max-width: 380px;
 }
 
 /* Marquee Scroll for Limited Editions */
@@ -169,7 +157,9 @@
 }
 
 .horizontalScrollItem {
-  flex: 0 0 auto;
+  flex: 0 0 300px;
+  width: 300px;
+  max-width: 85vw;
 }
 
 /* Countdown */

@@ -64,10 +64,23 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className={styles.productGrid}>
-          {limitedProducts.map(product => (
-            <ProductCard key={product.id} {...product} />
-          ))}
+        <div className={styles.marqueeWrapper}>
+          <div className={styles.marqueeTrack}>
+            <div className={styles.marqueeContent}>
+              {limitedProducts.map(product => (
+                <div key={product.id} className={styles.horizontalScrollItem}>
+                  <ProductCard {...product} />
+                </div>
+              ))}
+            </div>
+            <div className={styles.marqueeContent} aria-hidden="true">
+              {limitedProducts.map(product => (
+                <div key={`${product.id}-dup`} className={styles.horizontalScrollItem}>
+                  <ProductCard {...product} />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 

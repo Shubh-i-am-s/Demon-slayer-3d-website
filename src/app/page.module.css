@@ -134,6 +134,38 @@
   }
 }
 
+/* Marquee Scroll for Limited Editions */
+.marqueeWrapper {
+  overflow: hidden;
+  width: 100%;
+  padding-bottom: var(--spacing-xl);
+}
+
+.marqueeTrack {
+  display: flex;
+  width: max-content;
+  animation: scrollLeft 30s linear infinite;
+}
+
+.marqueeTrack:hover {
+  animation-play-state: paused;
+}
+
+.marqueeContent {
+  display: flex;
+  gap: var(--spacing-xl);
+  padding-right: var(--spacing-xl);
+}
+
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.horizontalScrollItem {
+  flex: 0 0 auto;
+}
+
 /* Countdown */
 .countdownContainer {
   display: flex;

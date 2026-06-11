@@ -23,32 +23,40 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   category,
   isLimited,
 }) => {
+  // Mock rating for design
+  const rating = 4.9;
+  const reviews = Math.floor(Math.random() * 200) + 50;
   return (
     <div className={styles.card}>
+      <div className={styles.cardHeader}>
+        <span className={styles.scaleText}>1/4 ULTIMATE SCALE</span>
+        {isLimited && <span className={styles.limitedBadge}>LIMITED</span>}
+      </div>
+
       <div className={styles.imageContainer}>
-        {isLimited && <span className={styles.badge}>Limited Edition</span>}
-        {/* We'll use an img tag if we don't have Next.js image domain configured, but here we can just use img for simplicity in mock data if needed. Let's use next/image with unoptimized or standard img */}
         <img src={image} alt={name} className={styles.image} loading="lazy" />
-        
-        <div className={styles.overlay}>
-          <div className={styles.actions}>
-            <button className={styles.actionBtn} aria-label="Add to Wishlist">
-              <Heart size={20} />
-            </button>
-            <Button variant="primary" size="sm" className={styles.quickAdd}>
-              <ShoppingCart size={16} className={styles.cartIcon} />
-              Add to Cart
-            </Button>
-          </div>
-        </div>
       </div>
       
       <div className={styles.info}>
-        <span className={styles.category}>{category}</span>
+        <div className={styles.rating}>
+          <span className={styles.star}>★</span>
+          <span className={styles.ratingValue}>{rating}</span>
+          <span className={styles.reviews}>({reviews})</span>
+        </div>
         <Link href={`/product/${id}`} className={styles.nameLink}>
           <h3 className={styles.name}>{name}</h3>
         </Link>
-        <p className={styles.price}>${price.toFixed(2)}</p>
+        <p className={styles.subtitle}>{category}</p>
+      </div>
+
+      <div className={styles.footer}>
+        <div className={styles.priceContainer}>
+          <span className={styles.priceLabel}>PRICE</span>
+          <span className={styles.price}>${Math.floor(price)}</span>
+        </div>
+        <Link href={`/product/${id}`} className={styles.showroomLink}>
+          SHOWROOM
+        </Link>
       </div>
     </div>
   );

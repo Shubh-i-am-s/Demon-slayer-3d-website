@@ -1,0 +1,243 @@
+.container {
+  padding: 120px var(--spacing-lg) var(--spacing-2xl);
+  max-width: 1440px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-xl);
+  font-size: 0.875rem;
+}
+
+.crumb {
+  color: var(--foreground-muted);
+  transition: color 0.3s ease;
+}
+
+.crumb:hover {
+  color: var(--accent);
+}
+
+.crumbIcon {
+  color: var(--surface-elevated);
+}
+
+.activeCrumb {
+  color: var(--accent);
+}
+
+.productLayout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-2xl);
+}
+
+@media (min-width: 1024px) {
+  .productLayout {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Gallery */
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.mainImageContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/5;
+  background: radial-gradient(circle at center, var(--surface-elevated) 0%, transparent 100%);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--surface-elevated);
+}
+
+.badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 10;
+  background: var(--primary);
+  color: var(--color-white);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.mainImage {
+  object-fit: contain;
+  filter: drop-shadow(0 20px 30px rgba(0,0,0,0.6));
+  padding: var(--spacing-lg);
+  transition: transform 0.5s ease;
+}
+
+.mainImageContainer:hover .mainImage {
+  transform: scale(1.05);
+}
+
+.thumbnails {
+  display: flex;
+  gap: var(--spacing-md);
+  overflow-x: auto;
+  padding-bottom: var(--spacing-sm);
+}
+
+.thumbnailContainer {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  flex-shrink: 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  background: var(--surface-elevated);
+}
+
+.thumbnailContainer:hover {
+  border-color: var(--accent);
+}
+
+.thumbnail {
+  object-fit: contain;
+  padding: var(--spacing-sm);
+}
+
+/* Info */
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--color-white);
+  line-height: 1.1;
+  margin-bottom: var(--spacing-sm);
+}
+
+.price {
+  font-size: 1.5rem;
+  color: var(--foreground-muted);
+  margin-bottom: var(--spacing-md);
+  font-family: var(--font-heading);
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-lg);
+}
+
+.stars {
+  color: var(--accent);
+  letter-spacing: 2px;
+}
+
+.reviewCount {
+  color: var(--foreground-muted);
+  font-size: 0.875rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.description {
+  color: var(--foreground-muted);
+  line-height: 1.8;
+  margin-bottom: var(--spacing-xl);
+  font-size: 1.125rem;
+}
+
+.stockInfo {
+  margin-bottom: var(--spacing-lg);
+}
+
+.inStock {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: rgba(46, 125, 50, 0.1);
+  color: #4caf50;
+  border: 1px solid rgba(76, 175, 80, 0.3);
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.actions {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.addToCartBtn {
+  flex-grow: 1;
+  gap: var(--spacing-sm);
+  font-size: 1.125rem;
+}
+
+.wishlistBtn {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  border: 1px solid var(--surface-elevated);
+  color: var(--foreground-muted);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.wishlistBtn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: rgba(139, 0, 0, 0.1);
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  padding-top: var(--spacing-xl);
+  border-top: 1px solid var(--surface-elevated);
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.featureIcon {
+  color: var(--accent);
+}
+
+.featureText {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.featureText strong {
+  color: var(--color-white);
+  font-weight: 500;
+}
+
+.featureText span {
+  color: var(--foreground-muted);
+  font-size: 0.875rem;
+}

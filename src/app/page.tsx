@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/Button/Button";
 import { ProductCard } from "@/components/ui/ProductCard/ProductCard";
 import { AnimatedGrid } from "@/components/ui/AnimatedGrid/AnimatedGrid";
+import { ScrollVideoHero } from "@/components/ui/ScrollVideoHero/ScrollVideoHero";
 import { products } from "@/lib/data";
 import styles from "./page.module.css";
 
@@ -12,38 +13,22 @@ export default function Home() {
   return (
     <div className={styles.container}>
       {/* Hero Section */}
-      <section className={styles.hero}>
-        <div className={styles.heroBackground}>
-          <Image
-            src="/hero-bg.png"
-            alt="Legendary Anime Sword"
-            fill
-            priority
-            className={styles.heroImage}
-          />
-          <div className={styles.heroOverlay} />
-        </div>
-        
+      <ScrollVideoHero>
         <div className={styles.heroContent}>
           <h1 className={styles.heroTitle}>
-            Every Legend Deserves a <span className="text-gradient">Place in Your Collection.</span>
+            Legendary <span className="text-gradient">Masterpieces.</span>
           </h1>
           <p className={styles.heroSubtitle}>
-            Curated masterpieces for collectors who refuse to settle for ordinary.
+            Curated for the ultimate collector.
           </p>
           <div className={styles.heroActions}>
             <Button size="lg" variant="primary">Explore Collection</Button>
             <Button size="lg" variant="outline">Limited Editions</Button>
           </div>
         </div>
-      </section>
+      </ScrollVideoHero>
 
-      {/* Motivational Copy Section */}
-      <section className={styles.quoteSection}>
-        <div className="glass-panel" style={{ padding: 'var(--spacing-2xl) var(--spacing-lg)', textAlign: 'center', margin: '0 auto', maxWidth: '800px', borderRadius: 'var(--radius-lg)' }}>
-          <h2 className={styles.quoteText}>"Set your heart ablaze for the collection you deserve."</h2>
-        </div>
-      </section>
+
 
       {/* Limited Edition Showcase */}
       <section className={styles.section}>

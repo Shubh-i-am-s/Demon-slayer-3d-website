@@ -200,7 +200,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 60vh;
+  min-height: 80vh;
   border-top: 1px solid rgba(139, 0, 0, 0.2);
   border-bottom: 1px solid rgba(139, 0, 0, 0.2);
 }
@@ -226,7 +226,8 @@
 }
 
 .storyContent {
-  max-width: 800px;
+  width: 100%;
+  max-width: 1200px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -234,6 +235,7 @@
   gap: var(--spacing-lg);
   position: relative;
   z-index: 2;
+  padding: 0 var(--spacing-md);
 }
 
 .storyTitle {

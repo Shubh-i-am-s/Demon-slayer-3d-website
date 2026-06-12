@@ -16,7 +16,7 @@ export default function Home() {
       <ScrollVideoHero>
         <div className={styles.heroContent}>
           <h1 className={styles.heroTitle}>
-            Legendary <span className="text-gradient">Masterpieces.</span>
+            Unleash the <span className="text-gradient">Extraordinary.</span>
           </h1>
           <p className={styles.heroSubtitle}>
             Curated for the ultimate collector.
@@ -72,6 +72,15 @@ export default function Home() {
 
       {/* Brand Story */}
       <section className={styles.storySection}>
+        <video 
+          className={styles.storyVideoBackground}
+          src="/greatnessisremembered.mp4" 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+        />
+        <div className={styles.storyVideoOverlay} />
         <div className={styles.storyContent}>
           <h2 className={styles.storyTitle}>Greatness Is Remembered. <br/>Legends Are Displayed.</h2>
           <p className={styles.storyText}>

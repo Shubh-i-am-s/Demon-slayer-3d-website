@@ -40,35 +40,48 @@
 
 /* Variants */
 .primary {
-  background-color: var(--primary);
+  background-image: url('/tanjiro-pattern.png');
+  background-size: cover;
+  background-position: center;
   color: var(--color-white);
-  box-shadow: 0 4px 14px rgba(139, 0, 0, 0.4);
+  border-color: #000;
+  box-shadow: 0 4px 14px rgba(0, 168, 150, 0.3);
+  font-weight: 600;
 }
 
 .primary:hover {
-  background-color: var(--primary-hover);
-  box-shadow: 0 6px 20px rgba(139, 0, 0, 0.6);
+  filter: brightness(1.1);
+  box-shadow: 0 6px 20px rgba(0, 168, 150, 0.5);
 }
 
 .secondary {
-  background-color: var(--accent);
+  background-image: url('/zenitsu-pattern.png');
+  background-size: cover;
+  background-position: center;
   color: var(--color-black);
+  border-color: var(--accent);
   box-shadow: 0 4px 14px rgba(212, 175, 55, 0.3);
+  font-weight: 600;
 }
 
 .secondary:hover {
-  background-color: var(--color-gold-light);
+  filter: brightness(1.1);
   box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
 }
 
 .outline {
-  background-color: transparent;
-  color: var(--accent);
+  background-image: url('/zenitsu-pattern.png');
+  background-size: cover;
+  background-position: center;
+  color: var(--color-black);
   border-color: var(--accent);
+  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.3);
+  font-weight: 600;
 }
 
 .outline:hover {
-  background-color: rgba(212, 175, 55, 0.1);
+  filter: brightness(1.1);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
 }
 
 .ghost {

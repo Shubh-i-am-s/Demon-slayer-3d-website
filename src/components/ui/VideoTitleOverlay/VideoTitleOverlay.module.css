@@ -1,0 +1,270 @@
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  overflow: hidden;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.2) 50%,
+    transparent 75%
+  );
+}
+
+.flash {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 248, 231, 0.25) 0%,
+    transparent 55%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ambientGlow {
+  position: absolute;
+  width: 60vmin;
+  height: 40vmin;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse,
+    rgba(212, 175, 55, 0.12) 0%,
+    rgba(139, 0, 0, 0.06) 40%,
+    transparent 70%
+  );
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  max-width: min(92vw, 900px);
+  gap: 0.35rem;
+}
+
+/* ─── Top tagline ─────────────────────────────────────────────────────────── */
+.journeyLine {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 520px;
+  margin-bottom: 0.75rem;
+}
+
+.journeyLineDecor {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(212, 175, 55, 0.6) 30%,
+    rgba(212, 175, 55, 0.9) 50%,
+    rgba(212, 175, 55, 0.6) 70%,
+    transparent
+  );
+  display: block;
+}
+
+.journeyText {
+  font-family: var(--font-cinzel), var(--font-playfair), "Times New Roman", serif;
+  font-size: clamp(0.55rem, 1.2vw, 0.7rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  color: transparent;
+  background: linear-gradient(
+    180deg,
+    #f3e5ab 0%,
+    #d4af37 45%,
+    #a67c00 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  white-space: nowrap;
+  filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.4));
+}
+
+/* ─── Welcome line ────────────────────────────────────────────────────────── */
+.welcomeRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.dash {
+  width: 28px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #8b0000, transparent);
+  display: block;
+}
+
+.welcomeText {
+  font-family: var(--font-cinzel), var(--font-playfair), "Times New Roman", serif;
+  font-size: clamp(1rem, 2.5vw, 1.45rem);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: transparent;
+  background: linear-gradient(
+    180deg,
+    #f5e6b8 0%,
+    #d4af37 50%,
+    #b8962e 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0 2px 12px rgba(212, 175, 55, 0.35));
+}
+
+/* ─── Main title ──────────────────────────────────────────────────────────── */
+.mainTitle {
+  font-family: var(--font-cinzel-decorative), var(--font-cinzel), var(--font-playfair), serif;
+  font-size: clamp(2.5rem, 9vw, 5.5rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  margin: 0.15rem 0 0.35rem;
+}
+
+.titleLetter {
+  color: transparent;
+  background: linear-gradient(
+    165deg,
+    #ffffff 0%,
+    #e8e4dc 25%,
+    #c9c5bd 45%,
+    #f5f2eb 55%,
+    #b8b4ac 75%,
+    #eceae4 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.25))
+    drop-shadow(0 4px 30px rgba(0, 0, 0, 0.8));
+}
+
+.titleSpace {
+  display: inline-block;
+  width: 0.35em;
+}
+
+.redO {
+  position: relative;
+  display: inline-block;
+  color: transparent;
+  background: linear-gradient(
+    180deg,
+    #c41e3a 0%,
+    #8b0000 50%,
+    #5c0000 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.redOSlash {
+  position: absolute;
+  top: 52%;
+  left: -8%;
+  width: 116%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #8b0000, #b22222, #8b0000, transparent);
+  transform: rotate(-32deg);
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(139, 0, 0, 0.8);
+  display: block;
+}
+
+/* ─── Collection ──────────────────────────────────────────────────────────── */
+.collectionRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.collectionText {
+  font-family: var(--font-cinzel), var(--font-playfair), "Times New Roman", serif;
+  font-size: clamp(1.1rem, 3vw, 1.75rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #8b0000;
+  text-shadow:
+    0 0 20px rgba(139, 0, 0, 0.5),
+    0 2px 8px rgba(0, 0, 0, 0.6);
+  display: inline-block;
+}
+
+/* ─── Tagline ─────────────────────────────────────────────────────────────── */
+.tagline {
+  font-family: var(--font-cinzel), var(--font-playfair), "Times New Roman", serif;
+  font-size: clamp(0.5rem, 1.1vw, 0.65rem);
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  max-width: 520px;
+  line-height: 1.8;
+  margin: 0.5rem 0 1.25rem;
+}
+
+.taglineWord {
+  color: transparent;
+  background: linear-gradient(180deg, #e8d5a3 0%, #c9a227 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.3));
+  display: inline-block;
+}
+
+/* ─── CTA ─────────────────────────────────────────────────────────────────── */
+.ctaRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 420px;
+}
+
+.ctaLineDecor {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(212, 175, 55, 0.3) 20%,
+    rgba(243, 229, 171, 0.9) 50%,
+    rgba(212, 175, 55, 0.3) 80%,
+    transparent
+  );
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
+  display: block;
+}
+
+.ctaText {
+  font-family: var(--font-cinzel), var(--font-playfair), "Times New Roman", serif;
+  font-size: clamp(0.85rem, 2vw, 1.1rem);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: transparent;
+  background: linear-gradient(180deg, #fff8e7 0%, #d4af37 60%, #b8962e 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  white-space: nowrap;
+}

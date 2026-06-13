@@ -62,11 +62,16 @@
   text-align: center;
   margin-bottom: var(--spacing-xl);
   gap: var(--spacing-md);
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1440px;
 }
 
 .sectionTitle {
   font-size: clamp(2rem, 4vw, 3rem);
   color: var(--color-white);
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.75);
 }
 
 .sectionSubtitle {
@@ -76,27 +81,65 @@
 
 /* Product Grid */
 .productGrid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--spacing-xl);
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: var(--spacing-lg);
+  width: 100%;
+  justify-items: center;
 }
 
 .productGrid > div {
-  flex: 1 1 280px;
-  max-width: 380px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 480px) {
+  .productGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+  }
+}
+
+@media (min-width: 768px) {
+  .productGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+  }
+}
+
+@media (min-width: 1100px) {
+  .productGrid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-md);
+  }
+}
+
+/* Limited Edition Section */
+.limitedSection {
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  padding-bottom: var(--spacing-xl);
+}
+
+.limitedSection .sectionHeader {
+  flex-shrink: 0;
 }
 
 /* Marquee Scroll for Limited Editions */
 .marqueeWrapper {
   overflow: hidden;
   width: 100%;
-  padding-bottom: var(--spacing-xl);
+  padding-bottom: var(--spacing-md);
 }
 
 .marqueeTrack {
   display: flex;
+  align-items: stretch;
   width: max-content;
+  height: 100%;
   animation: scrollLeft 30s linear infinite;
 }
 
@@ -106,8 +149,10 @@
 
 .marqueeContent {
   display: flex;
+  align-items: stretch;
   gap: var(--spacing-xl);
   padding-right: var(--spacing-xl);
+  height: 100%;
 }
 
 @keyframes scrollLeft {
@@ -116,9 +161,10 @@
 }
 
 .horizontalScrollItem {
-  flex: 0 0 300px;
-  width: 300px;
-  max-width: 85vw;
+  flex: 0 0 260px;
+  width: 260px;
+  max-width: 80vw;
+  display: flex;
 }
 
 /* Countdown */
@@ -200,7 +246,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 80vh;
+  min-height: 90vh;
   border-top: 1px solid rgba(139, 0, 0, 0.2);
   border-bottom: 1px solid rgba(139, 0, 0, 0.2);
 }

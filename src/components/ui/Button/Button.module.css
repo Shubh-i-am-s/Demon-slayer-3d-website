@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   font-family: var(--font-body);
-  font-weight: 500;
+  font-weight: 700;
   border-radius: var(--radius-sm);
   transition: all 0.3s ease;
   cursor: pointer;
@@ -40,19 +40,24 @@
 
 /* Variants */
 .primary {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('/tanjiro-pattern.png');
+  background-image: linear-gradient(rgba(139, 0, 0, 0.65), rgba(139, 0, 0, 0.65)), url('/tanjiro-pattern.png');
   background-size: cover;
   background-position: center;
   color: var(--color-white);
-  border-color: #000;
-  box-shadow: 0 4px 14px rgba(0, 168, 150, 0.3);
-  font-weight: 600;
+  border-color: var(--color-crimson);
+  box-shadow: 0 4px 14px rgba(139, 0, 0, 0.5);
+  font-weight: 800;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
 }
 
 .primary:hover {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('/tanjiro-pattern.png');
-  box-shadow: 0 6px 20px rgba(0, 168, 150, 0.5);
+  background-image: linear-gradient(rgba(178, 34, 34, 0.45), rgba(178, 34, 34, 0.45)), url('/tanjiro-pattern.png');
+  box-shadow: 0 6px 20px rgba(178, 34, 34, 0.8);
+}
+
+/* Custom Red shine effect for primary button */
+.primary::after {
+  background: linear-gradient(to right, rgba(139, 0, 0, 0) 0%, rgba(220, 20, 60, 0.65) 50%, rgba(139, 0, 0, 0) 100%);
 }
 
 .secondary {
@@ -62,13 +67,18 @@
   color: var(--color-white);
   border-color: var(--accent);
   box-shadow: 0 4px 14px rgba(212, 175, 55, 0.3);
-  font-weight: 600;
+  font-weight: 800;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
 }
 
 .secondary:hover {
   background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('/zenitsu-pattern.png');
   box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+}
+
+/* Custom Gold shine effect for secondary button */
+.secondary::after {
+  background: linear-gradient(to right, rgba(212, 175, 55, 0) 0%, rgba(212, 175, 55, 0.65) 50%, rgba(212, 175, 55, 0) 100%);
 }
 
 .outline {
@@ -78,13 +88,18 @@
   color: var(--color-white);
   border-color: var(--accent);
   box-shadow: 0 4px 14px rgba(212, 175, 55, 0.3);
-  font-weight: 600;
+  font-weight: 800;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
 }
 
 .outline:hover {
   background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('/zenitsu-pattern.png');
   box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+}
+
+/* Custom Gold shine effect for outline button */
+.outline::after {
+  background: linear-gradient(to right, rgba(212, 175, 55, 0) 0%, rgba(212, 175, 55, 0.65) 50%, rgba(212, 175, 55, 0) 100%);
 }
 
 .ghost {

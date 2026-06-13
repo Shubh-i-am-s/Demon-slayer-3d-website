@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   font-family: var(--font-body);
-  font-weight: 700;
+  font-weight: 800;
   border-radius: var(--radius-sm);
   transition: all 0.3s ease;
   cursor: pointer;
@@ -46,7 +46,7 @@
   color: var(--color-white);
   border-color: var(--color-crimson);
   box-shadow: 0 4px 14px rgba(139, 0, 0, 0.5);
-  font-weight: 800;
+  font-weight: 900;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
 }
 
@@ -67,7 +67,7 @@
   color: var(--color-white);
   border-color: var(--accent);
   box-shadow: 0 4px 14px rgba(212, 175, 55, 0.3);
-  font-weight: 800;
+  font-weight: 900;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
 }
 
@@ -88,7 +88,7 @@
   color: var(--color-white);
   border-color: var(--accent);
   box-shadow: 0 4px 14px rgba(212, 175, 55, 0.3);
-  font-weight: 800;
+  font-weight: 900;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
 }
 

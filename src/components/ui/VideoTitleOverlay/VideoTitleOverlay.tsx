@@ -1,12 +1,12 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import styles from "./VideoTitleOverlay.module.css";
 
 const EASE_CINEMATIC = [0.16, 1, 0.3, 1] as const;
 
-const overlayVariants = {
+const overlayVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -20,7 +20,7 @@ const overlayVariants = {
   },
 };
 
-const contentVariants = {
+const contentVariants: Variants = {
   hidden: { opacity: 0, scale: 0.92, y: 30 },
   visible: {
     opacity: 1,
@@ -35,7 +35,7 @@ const contentVariants = {
   },
 };
 
-const lineVariants = {
+const lineVariants: Variants = {
   hidden: { scaleX: 0, opacity: 0 },
   visible: {
     scaleX: 1,
@@ -44,7 +44,7 @@ const lineVariants = {
   },
 };
 
-const fadeUpVariants = {
+const fadeUpVariants: Variants = {
   hidden: { opacity: 0, y: 28, filter: "blur(14px)" },
   visible: {
     opacity: 1,
@@ -54,7 +54,7 @@ const fadeUpVariants = {
   },
 };
 
-const dashVariants = {
+const dashVariants: Variants = {
   hidden: { scaleX: 0, opacity: 0 },
   visible: {
     scaleX: 1,
@@ -65,7 +65,7 @@ const dashVariants = {
 
 const titleLetters = ["D", "E", "M", "O", "N", " ", "S", "L", "A", "Y", "E", "R"];
 
-const letterVariants = {
+const letterVariants: Variants = {
   hidden: {
     opacity: 0,
     y: 60,
@@ -87,7 +87,7 @@ const letterVariants = {
   }),
 };
 
-const redOVariants = {
+const redOVariants: Variants = {
   hidden: { opacity: 0, scale: 0, rotate: -180 },
   visible: {
     opacity: 1,
@@ -103,7 +103,7 @@ const redOVariants = {
   },
 };
 
-const slashVariants = {
+const slashVariants: Variants = {
   hidden: { scaleX: 0, opacity: 0 },
   visible: {
     scaleX: 1,
@@ -116,7 +116,7 @@ const slashVariants = {
   },
 };
 
-const collectionVariants = {
+const collectionVariants: Variants = {
   hidden: { opacity: 0, letterSpacing: "0.6em", scale: 1.2, filter: "blur(8px)" },
   visible: {
     opacity: 1,
@@ -129,7 +129,7 @@ const collectionVariants = {
 
 const taglineWords = ["Exclusive", "Merchandise", "Awaits", "Beyond", "These", "Gates"];
 
-const wordVariants = {
+const wordVariants: Variants = {
   hidden: { opacity: 0, y: 12, filter: "blur(6px)" },
   visible: (i: number) => ({
     opacity: 1,
@@ -143,7 +143,7 @@ const wordVariants = {
   }),
 };
 
-const ctaGlowVariants = {
+const ctaGlowVariants: Variants = {
   hidden: { opacity: 0, scale: 0.8 },
   visible: {
     opacity: 1,
@@ -152,7 +152,7 @@ const ctaGlowVariants = {
   },
 };
 
-const flashVariants = {
+const flashVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: [0, 0.35, 0],

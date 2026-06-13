@@ -25,6 +25,7 @@ export const ParallaxImage: React.FC<ParallaxImageProps> = ({
 
   useEffect(() => {
     // Lazy-import GSAP + ScrollTrigger on the client only
+    let active = true;
     let ctx: { revert: () => void } | null = null;
 
     const init = async () => {
@@ -33,6 +34,8 @@ export const ParallaxImage: React.FC<ParallaxImageProps> = ({
 
       const gsap = gsapModule.default;
       gsap.registerPlugin(ScrollTrigger);
+
+      if (!active) return;
 
       ctx = gsap.context(() => {
         // Floating idle animation
@@ -66,6 +69,7 @@ export const ParallaxImage: React.FC<ParallaxImageProps> = ({
     init();
 
     return () => {
+      active = false;
       ctx?.revert();
     };
   }, [speed]);

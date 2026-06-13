@@ -1,0 +1,64 @@
+/* ─── Wrapper that holds the product section ─────────────────────────────── */
+.sectionWrapper {
+  width: 100%;
+  position: relative;
+}
+
+/* ─── True fullscreen overlay (above navbar, above everything) ────────────── */
+.fullscreenOverlay {
+  position: fixed;
+  inset: 0;                     /* top:0 right:0 bottom:0 left:0 */
+  width: 100%;
+  height: 100%;
+  z-index: 9999;                /* above navbar (z-index: 50) and all else */
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.fullscreenVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;            /* fill the screen, crop excess */
+  display: block;
+}
+
+
+
+
+/* ─── Product grid revealed after video ──────────────────────────────────── */
+.gridContainer {
+  width: 100%;
+  max-width: 1440px;
+  position: relative;
+  z-index: 2;
+}
+
+/* ─── Placeholder shown while user hasn't triggered the video yet ─────────── */
+.placeholder {
+  width: 100%;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.placeholderText {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.25);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.contentContainer {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-2xl) var(--spacing-lg);
+}
+

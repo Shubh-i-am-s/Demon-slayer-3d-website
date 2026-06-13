@@ -1,0 +1,67 @@
+/* ─── Outer container: grows to fit all content ──────────────────────────── */
+.container {
+  position: relative;
+  width: 100%;
+  overflow: clip; /* clip (not hidden) so sticky child still works but bg doesn't leak */
+}
+
+/* ─── Sticky background canvas ────────────────────────────────────────────── */
+/*
+  position: sticky so it stays at the top of the viewport while the user
+  scrolls through the section. height: 0 + overflow: visible means it takes
+  NO vertical space, so the scrollContent below flows naturally and the cards
+  appear to scroll OVER the sticky canvas.
+*/
+.stickyBg {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  background: #000;
+  z-index: 0;
+  /* Pull it out of flow so the content below starts at the same Y position */
+  margin-bottom: -100vh;
+  margin-bottom: -100dvh;
+}
+
+/* ─── Canvas fills the sticky viewport ───────────────────────────────────── */
+.canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: brightness(1.12) contrast(1.06) saturate(1.08);
+}
+
+/* ─── Subtle vignette over the bg frames ────────────────────────────────── */
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.08) 0%,
+    rgba(0, 0, 0, 0.15) 50%,
+    rgba(0, 0, 0, 0.32) 100%
+  );
+}
+
+/* ─── Content sits above the bg, flows naturally ─────────────────────────── */
+.scrollContent {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-xl) var(--spacing-lg) var(--spacing-2xl);
+}
+
+.scrollContentActive {
+  /* Cards sit on top of the sticky bg — no hacks needed */
+}

@@ -63,15 +63,19 @@ export const ScrollVideoHero: React.FC<{ children: React.ReactNode }> = ({ child
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
+    // Adjust canvas resolution to match window and device pixel ratio to avoid blur
+    const dpr = typeof window !== "undefined" ? window.devicePixelRatio || 1 : 1;
+    const targetWidth = window.innerWidth * dpr;
+    const targetHeight = window.innerHeight * dpr;
+
+    if (canvas.width !== targetWidth || canvas.height !== targetHeight) {
+      canvas.width = targetWidth;
+      canvas.height = targetHeight;
+    }
+
     // Improve image quality when stretching the frames
     ctx.imageSmoothingEnabled = true;
     ctx.imageSmoothingQuality = "high";
-
-    // Adjust canvas resolution to match window to avoid blur
-    if (canvas.width !== window.innerWidth || canvas.height !== window.innerHeight) {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
 
     const hRatio = canvas.width / img.width;
     const vRatio = canvas.height / img.height;
@@ -94,9 +98,21 @@ export const ScrollVideoHero: React.FC<{ children: React.ReactNode }> = ({ child
     }
   }, [isLoaded, images]);
 
-  // Sync canvas draw with scroll
+  // Sync canvas draw with scroll and window resizing
   useEffect(() => {
     if (!isLoaded || images.length === 0) return;
+
+    const handleResize = () => {
+      const latestFrame = currentFrame.get();
+      const frameIndex = Math.min(FRAME_COUNT - 1, Math.max(0, Math.floor(latestFrame) - 1));
+      const img = images[frameIndex];
+      
+      if (canvasRef.current && img) {
+        drawFrame(img, canvasRef.current);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
 
     // Use framer-motion's onChange to trigger redraws smoothly
     const unsubscribe = currentFrame.on("change", (latestFrame) => {
@@ -108,7 +124,10 @@ export const ScrollVideoHero: React.FC<{ children: React.ReactNode }> = ({ child
       }
     });
 
-    return () => unsubscribe();
+    return () => {
+      unsubscribe();
+      window.removeEventListener("resize", handleResize);
+    };
   }, [currentFrame, images, isLoaded]);
 
   // Fade out the text overlay towards the very end of the scroll (last 20%)

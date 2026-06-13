@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/Button/Button";
 import { ProductCard } from "@/components/ui/ProductCard/ProductCard";
-import { AnimatedGrid } from "@/components/ui/AnimatedGrid/AnimatedGrid";
+import { FeaturedCollections } from "@/components/ui/FeaturedCollections/FeaturedCollections";
 import { ScrollVideoHero } from "@/components/ui/ScrollVideoHero/ScrollVideoHero";
 import { products } from "@/lib/data";
 import styles from "./page.module.css";
@@ -31,7 +31,7 @@ export default function Home() {
 
 
       {/* Limited Edition Showcase */}
-      <section className={styles.section}>
+      <section className={`${styles.section} ${styles.limitedSection}`}>
         <div className={styles.sectionHeader}>
           <h2 className={styles.sectionTitle}>Only a Few Legends Remain.</h2>
           <p className={styles.sectionSubtitle}>Exclusive releases with strictly limited stock. Once they are gone, they become history.</p>
@@ -55,14 +55,14 @@ export default function Home() {
             <div className={styles.marqueeContent}>
               {limitedProducts.map(product => (
                 <div key={product.id} className={styles.horizontalScrollItem}>
-                  <ProductCard {...product} />
+                  <ProductCard {...product} variant="large" />
                 </div>
               ))}
             </div>
             <div className={styles.marqueeContent} aria-hidden="true">
               {limitedProducts.map(product => (
                 <div key={`${product.id}-dup`} className={styles.horizontalScrollItem}>
-                  <ProductCard {...product} />
+                  <ProductCard {...product} variant="large" />
                 </div>
               ))}
             </div>
@@ -93,7 +93,7 @@ export default function Home() {
       </section>
 
       {/* Featured Collections */}
-      <section className={styles.section}>
+      <FeaturedCollections products={featuredProducts} className={styles.productGrid}>
         <div className={styles.sectionHeader}>
           <h2 className={styles.sectionTitle}>Featured Collections</h2>
           <div className={styles.categories}>
@@ -102,8 +102,7 @@ export default function Home() {
             <span className={styles.categoryBadge}>Mythical Heroes</span>
           </div>
         </div>
-        <AnimatedGrid products={featuredProducts} className={styles.productGrid} />
-      </section>
+      </FeaturedCollections>
       
       {/* Collector Benefits */}
       <section className={styles.benefitsSection}>

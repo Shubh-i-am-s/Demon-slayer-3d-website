@@ -1,18 +1,23 @@
 .card {
   display: flex;
   flex-direction: column;
-  background: #111111;
-  border: 1px solid #2a2a2a;
+  background: rgba(10, 15, 30, 0.55);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 12px;
-  padding: 16px;
+  padding: 12px;
   width: 100%;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  max-width: 280px;
+  margin: 0 auto;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-5px);
-  border-color: #444;
+  border-color: rgba(255, 255, 255, 0.22);
+  background-color: rgba(10, 15, 30, 0.65);
 }
 
 .cardHeader {
@@ -46,8 +51,8 @@
   aspect-ratio: 1;
   border-radius: 8px;
   overflow: hidden;
-  background: radial-gradient(circle at center, #222 0%, #111 100%);
-  margin-bottom: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  margin-bottom: 12px;
 }
 
 .image {
@@ -64,8 +69,8 @@
 .info {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  margin-bottom: 24px;
+  gap: 4px;
+  margin-bottom: 16px;
 }
 
 .rating {
@@ -93,7 +98,7 @@
 }
 
 .name {
-  font-size: 1.2rem;
+  font-size: 1.05rem;
   font-weight: 600;
   color: #fff;
   line-height: 1.2;
@@ -129,7 +134,7 @@
 }
 
 .price {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: #fff;
 }
@@ -146,4 +151,21 @@
 
 .showroomLink:hover {
   opacity: 0.8;
+}
+
+/* Large variant — limited edition marquee */
+.cardLarge {
+  max-width: none;
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.cardLarge .imageContainer {
+  aspect-ratio: 1;
+  margin-bottom: 12px;
+}
+
+.cardLarge .image {
+  object-fit: contain;
 }

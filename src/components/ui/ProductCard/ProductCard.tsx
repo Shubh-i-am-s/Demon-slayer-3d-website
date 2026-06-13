@@ -1,9 +1,9 @@
+"use client";
+
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
-import { ShoppingCart, Heart } from 'lucide-react';
 import clsx from 'clsx';
-import { Button } from '../Button/Button';
+import { ParallaxImage } from '../ParallaxImage/ParallaxImage';
 import styles from './ProductCard.module.css';
 
 export interface ProductCardProps {
@@ -13,6 +13,9 @@ export interface ProductCardProps {
   image: string;
   category: string;
   isLimited?: boolean;
+  variant?: "default" | "large";
+  /** Parallax scroll drift amount in px (default 40). Larger = more depth. */
+  parallaxSpeed?: number;
 }
 
 export const ProductCard: React.FC<ProductCardProps> = ({
@@ -22,19 +25,30 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   image,
   category,
   isLimited,
+  variant = "default",
+  parallaxSpeed = 40,
 }) => {
   // Mock rating for design
   const rating = 4.9;
-  const reviews = Math.floor(Math.random() * 200) + 50;
+  const [reviews, setReviews] = React.useState(120);
+  React.useEffect(() => {
+    setReviews(Math.floor(Math.random() * 200) + 50);
+  }, []);
+
   return (
-    <div className={styles.card}>
+    <div className={clsx(styles.card, variant === "large" && styles.cardLarge)}>
       <div className={styles.cardHeader}>
         <span className={styles.scaleText}>1/4 ULTIMATE SCALE</span>
         {isLimited && <span className={styles.limitedBadge}>LIMITED</span>}
       </div>
 
       <div className={styles.imageContainer}>
-        <img src={image} alt={name} className={styles.image} loading="lazy" />
+        <ParallaxImage
+          src={image}
+          alt={name}
+          speed={parallaxSpeed}
+          initialScale={variant === "large" ? 1.12 : 1.18}
+        />
       </div>
       
       <div className={styles.info}>

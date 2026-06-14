@@ -38,7 +38,7 @@ export const Navbar = () => {
 
         {/* Logo */}
         <Link href="/" className={styles.logo}>
-          <span className={styles.logoText}>COLLECTOR'S</span>
+          <span className={styles.logoText}>COLLECTOR&apos;S</span>
           <span className={styles.logoAccent}>REALM</span>
         </Link>
 

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Button } from "@/components/ui/Button/Button";
 import { ProductCard } from "@/components/ui/ProductCard/ProductCard";
 import { FeaturedCollections } from "@/components/ui/FeaturedCollections/FeaturedCollections";
@@ -86,7 +85,7 @@ export default function Home() {
           <p className={styles.storyText}>
             Every statue represents a story, a journey, and a legacy. We bring together exceptional craftsmanship and iconic inspiration to create collectibles worthy of the most passionate fans. 
             <br/><br/>
-            Collectors don't follow trends. They preserve legends.
+            Collectors don&apos;t follow trends. They preserve legends.
           </p>
           <Button variant="secondary" size="lg" className={styles.storyBtn}>Discover Our Craft</Button>
         </div>

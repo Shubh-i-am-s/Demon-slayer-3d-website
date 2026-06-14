@@ -92,6 +92,7 @@ export const ScrollFrameSection: React.FC<ScrollFrameSectionProps> = ({
       loadedImages[i - 1] = img;
     }
 
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setImages(loadedImages);
   }, [framesPath, frameCount, drawFrame]);
 

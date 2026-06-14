@@ -10,7 +10,7 @@ export const Footer = () => {
     <footer className={styles.footer}>
       <div className={styles.newsletterSection}>
         <div className={styles.newsletterContent}>
-          <h2 className={styles.newsletterTitle}>Join the Collector's Circle.</h2>
+          <h2 className={styles.newsletterTitle}>Join the Collector&apos;s Circle.</h2>
           <p className={styles.newsletterSubtitle}>Get early access to limited editions and exclusive releases.</p>
           <form className={styles.newsletterForm} onSubmit={(e) => e.preventDefault()}>
             <input 
@@ -28,7 +28,7 @@ export const Footer = () => {
         <div className={styles.grid}>
           <div className={styles.brandCol}>
             <Link href="/" className={styles.logo}>
-              <span className={styles.logoText}>COLLECTOR'S</span>
+              <span className={styles.logoText}>COLLECTOR&apos;S</span>
               <span className={styles.logoAccent}>REALM</span>
             </Link>
             <p className={styles.brandDesc}>
@@ -68,7 +68,7 @@ export const Footer = () => {
         </div>
 
         <div className={styles.bottomBar}>
-          <p className={styles.copyright}>&copy; {new Date().getFullYear()} Collector's Realm. All rights reserved. Legends preserved.</p>
+          <p className={styles.copyright}>&copy; {new Date().getFullYear()} Collector&apos;s Realm. All rights reserved. Legends preserved.</p>
         </div>
       </div>
     </footer>

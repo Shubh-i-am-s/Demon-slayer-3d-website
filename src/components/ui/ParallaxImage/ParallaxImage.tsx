@@ -76,6 +76,7 @@ export const ParallaxImage: React.FC<ParallaxImageProps> = ({
 
   return (
     <div ref={wrapperRef} className={`${styles.wrapper} ${className ?? ""}`}>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         ref={imgRef}
         src={src}

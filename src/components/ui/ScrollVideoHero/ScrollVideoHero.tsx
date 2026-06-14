@@ -29,35 +29,6 @@ export const ScrollVideoHero: React.FC<{ children: React.ReactNode }> = ({ child
   // Map smooth scroll progress (0 to 1) to frame index (1 to FRAME_COUNT)
   const currentFrame = useTransform(smoothProgress, [0, 1], [1, FRAME_COUNT]);
 
-  // Preload all 294 images so they are ready for high-speed scrolling
-  useEffect(() => {
-    const loadedImages: HTMLImageElement[] = [];
-    let loadedCount = 0;
-
-    for (let i = 1; i <= FRAME_COUNT; i++) {
-      const img = new Image();
-      // Format number to 3 digits (001, 010, 100, etc.)
-      const frameNum = i.toString().padStart(3, '0');
-      img.src = `/hero-demon-slayer/ezgif-frame-${frameNum}.jpg`;
-      
-      img.onload = () => {
-        loadedCount++;
-        
-        // As soon as the first frame loads, draw it to prevent a black screen
-        if (i === 1 && canvasRef.current) {
-          drawFrame(img, canvasRef.current);
-          setIsLoaded(true);
-        }
-      };
-      
-      // Keep them in order
-      loadedImages[i - 1] = img;
-    }
-    
-    // Save the array reference immediately so scroll can use available frames
-    setImages(loadedImages);
-  }, []);
-
   // Draw frame helper to handle 'object-fit: cover' behavior on canvas
   const drawFrame = (img: HTMLImageElement, canvas: HTMLCanvasElement) => {
     const ctx = canvas.getContext("2d");
@@ -90,6 +61,33 @@ export const ScrollVideoHero: React.FC<{ children: React.ReactNode }> = ({ child
       centerShift_x, centerShift_y, img.width * ratio, img.height * ratio
     );
   };
+
+  // Preload all 294 images so they are ready for high-speed scrolling
+  useEffect(() => {
+    const loadedImages: HTMLImageElement[] = [];
+
+    for (let i = 1; i <= FRAME_COUNT; i++) {
+      const img = new Image();
+      // Format number to 3 digits (001, 010, 100, etc.)
+      const frameNum = i.toString().padStart(3, '0');
+      img.src = `/hero-demon-slayer/ezgif-frame-${frameNum}.jpg`;
+      
+      img.onload = () => {
+        // As soon as the first frame loads, draw it to prevent a black screen
+        if (i === 1 && canvasRef.current) {
+          drawFrame(img, canvasRef.current);
+          setIsLoaded(true);
+        }
+      };
+      
+      // Keep them in order
+      loadedImages[i - 1] = img;
+    }
+    
+    // Save the array reference immediately so scroll can use available frames
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setImages(loadedImages);
+  }, []);
 
   // Initial draw when loaded
   useEffect(() => {

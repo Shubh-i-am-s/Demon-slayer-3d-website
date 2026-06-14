@@ -87,7 +87,7 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
               <Box size={24} className={styles.featureIcon} />
               <div className={styles.featureText}>
                 <strong>Premium Packaging</strong>
-                <span>Luxury collector's box</span>
+                <span>Luxury collector&apos;s box</span>
               </div>
             </div>
             <div className={styles.featureItem}>

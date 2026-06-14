@@ -28,12 +28,15 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   variant = "default",
   parallaxSpeed = 40,
 }) => {
-  // Mock rating for design
+  // Mock rating and reviews for design
   const rating = 4.9;
-  const [reviews, setReviews] = React.useState(120);
-  React.useEffect(() => {
-    setReviews(Math.floor(Math.random() * 200) + 50);
-  }, []);
+  const reviews = React.useMemo(() => {
+    let hash = 0;
+    for (let i = 0; i < id.length; i++) {
+      hash = id.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    return Math.abs(hash % 200) + 50;
+  }, [id]);
 
   return (
     <div className={clsx(styles.card, variant === "large" && styles.cardLarge)}>
